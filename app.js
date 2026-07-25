@@ -20,3 +20,26 @@ document.addEventListener('DOMContentLoaded', function () {
     toggleHeroVideo();
   }
 });
+
+function toggleMobileMenu() {
+  var nav = document.getElementById('site-nav');
+  var btn = document.getElementById('mobile-menu-btn');
+  if (!nav) return;
+  var isOpen = nav.classList.toggle('nav-open');
+  if (btn) btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+}
+
+// Close the mobile menu after tapping a link, and on outside click
+document.addEventListener('DOMContentLoaded', function () {
+  var nav = document.getElementById('site-nav');
+  if (!nav) return;
+  nav.addEventListener('click', function (e) {
+    if (e.target.tagName === 'A') nav.classList.remove('nav-open');
+  });
+  document.addEventListener('click', function (e) {
+    var btn = document.getElementById('mobile-menu-btn');
+    if (nav.classList.contains('nav-open') && !nav.contains(e.target) && e.target !== btn) {
+      nav.classList.remove('nav-open');
+    }
+  });
+});
