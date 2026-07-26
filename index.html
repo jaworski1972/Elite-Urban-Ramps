@@ -49,7 +49,9 @@
     opacity: 0.16;
   }
   .content { position: relative; z-index: 1; max-width: 640px; }
-  .logo { height: 120px; width: auto; margin-bottom: 72px; }
+  .logo-wrap { position: relative; display: inline-block; margin-bottom: 72px; }
+  .logo-name { height: 120px; width: auto; display: block; }
+  .logo-icon { position: absolute; right: 100%; top: 0; height: 120px; width: auto; margin-right: 31px; }
   .eyebrow {
     font-family: 'IBM Plex Mono', monospace;
     font-size: 12px;
@@ -108,7 +110,9 @@
     margin-bottom: 40px;
   }
   @media (max-width: 600px) {
-    .logo { height: 84px; margin-bottom: 52px; }
+    .logo-wrap { margin-bottom: 52px; }
+    .logo-name { height: 84px; }
+    .logo-icon { height: 84px; margin-right: 22px; }
     h1 { font-size: 27px; }
     .claim { font-size: 15px; margin-bottom: 40px; }
     .unit { min-width: 62px; padding: 14px 6px; }
@@ -121,7 +125,10 @@
   <div class="wrap">
     <div class="giant-bg"><img src="assets/cad-watermark.png" alt="" /></div>
     <div class="content">
-      <img class="logo" src="assets/logo-lockup-trimmed.png" alt="Elite Urban Ramps" />
+      <div class="logo-wrap">
+        <img class="logo-icon" src="assets/logo-icon-only.png" alt="" />
+        <img class="logo-name" src="assets/logo-name-only.png" alt="Elite Urban Ramps" />
+      </div>
 
       <div class="countdown" id="countdown">
         <div class="unit"><div class="num" id="cd-days">--</div><div class="label">dni</div></div>
