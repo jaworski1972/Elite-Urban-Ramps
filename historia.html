@@ -221,6 +221,7 @@
 </style>
 <style>
   .tl-wrap { position: relative; }
+  .tl-line-container { position: relative; }
   .tl-line {
     position: absolute; left: 50%; top: 0; bottom: 0; width: 2px;
     background: oklch(22% 0.01 260 / 0.15); transform: translateX(-50%); z-index: 0;
@@ -229,7 +230,7 @@
     position: relative; display: grid; grid-template-columns: 1fr 44px 1fr;
     align-items: start; margin-bottom: 8px;
   }
-  .tl-wrap > .tl-row:last-child { margin-bottom: 0; }
+  .tl-line-container > .tl-row:last-child { margin-bottom: 0; }
   .tl-dot {
     grid-column: 2; width: 13px; height: 13px; border-radius: 50%;
     background: oklch(55% 0.12 55); justify-self: center; margin-top: 4px;
@@ -289,6 +290,7 @@
 
   <section style="padding: 16px 56px 80px;">
     <div class="tl-wrap" style="max-width: 900px; margin: 0 auto;">
+      <div class="tl-line-container" style="position: relative;">
       <div class="tl-line"></div>
       <div class="tl-row"><div class="tl-left">
         <div class="tl-year">1995</div>
@@ -322,7 +324,9 @@
         <div class="tl-year">2010</div>
         <p class="tl-text">Patent na O.Y.O (Own.Your.Own) — kompaktową rampę do użytku domowego, dostępną dla każdego pasjonata bez potrzeby dostępu do skateparku.</p>
         
-      </div></div><div class="tl-row">
+      </div></div>
+      </div>
+      <div class="tl-row">
       <div class="tl-key-fact">
         <div class="tl-year">2023 → DZIŚ</div>
         <p>G.RAMPS zostaje oficjalnym dostawcą UCI (Union Cycliste Internationale) parków do BMX Freestyle. To właśnie ten status otworzył drogę do udziału w budowie obiektów przygotowywanych na Igrzyska Olimpijskie w Los Angeles 2028 i Brisbane 2032 — technologię tę Fundacja Sportów Miejskich udostępnia dziś jako oficjalny przedstawiciel G.RAMPS w Polsce.</p>
@@ -330,6 +334,7 @@
           <img src="https://www.g-ramps.pl/assets/uci-official-supplier-transparent.webp" alt="UCI Official Supplier" style="height: 48px; width: auto; display: block;" />
         </div>
       </div>
+    </div>
     </div>
     <div style="margin-top: 16px; text-align: center;">
       <a href="index.html" style="text-decoration: none; color: oklch(22% 0.01 260); padding: 15px 26px; font-size: 14.5px; border: 1px solid oklch(22% 0.01 260 / 0.3); display: inline-block;" style-hover="border-color: oklch(22% 0.01 260);">← Wróć do strony głównej</a>
