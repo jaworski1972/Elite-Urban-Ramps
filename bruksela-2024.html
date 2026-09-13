@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Brussels Urban Session 2024 | G.RAMPS Polska</title>
+<meta name="description" content="Tymczasowa infrastruktura BMX Freestyle G.RAMPS na Brussels Urban Session 2024 — wydarzenie z udziałem czołowych zawodników świata w centrum Brukseli.">
+<link rel="canonical" href="https://g-ramps.pl/bruksela-2024.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  body { margin: 0; background: oklch(98% 0.005 80); }
+  * { box-sizing: border-box; }
+  ::selection { background: oklch(55% 0.12 55 / 0.25); }
+  @keyframes eventMarqueeScroll {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+  .event-marquee-track { animation: eventMarqueeScroll 42s linear infinite; }
+  .event-marquee-mask:hover .event-marquee-track { animation-play-state: paused; }
+  @media (prefers-reduced-motion: reduce) {
+    .event-marquee-track { animation: none; flex-wrap: wrap; white-space: normal; }
+    .event-marquee-set:nth-child(2) { display: none; }
+    .event-marquee-mask { -webkit-mask-image: none; mask-image: none; }
+  }
+  @keyframes atlasMarqueeScroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+  .atlas-marquee-track { animation: atlasMarqueeScroll 24s linear infinite; }
+  .atlas-marquee-mask:hover .atlas-marquee-track { animation-play-state: paused; }
+  @media (prefers-reduced-motion: reduce) {
+    .atlas-marquee-track { animation: none; }
+    .atlas-marquee-set:nth-child(2) { display: none; }
+    .atlas-marquee-mask { -webkit-mask-image: none; mask-image: none; }
+  }
+  @keyframes eurCadDraw { from { stroke-dashoffset: 480; } to { stroke-dashoffset: 0; } }
+  #eur-cad-profile { stroke-dasharray: 480; stroke-dashoffset: 0; animation: eurCadDraw 1.4s cubic-bezier(.2,.7,.3,1) 0.3s 1 both; }
+  @media (prefers-reduced-motion: reduce) {
+    #eur-cad-profile { animation: none !important; stroke-dashoffset: 0 !important; }
+  }
+
+  @keyframes processVisCad {
+    0%, 20% { opacity: 1; }
+    45%, 100% { opacity: 0; }
+  }
+  @keyframes processVisRender {
+    0%, 20% { opacity: 0; }
+    45%, 60% { opacity: 1; }
+    85%, 100% { opacity: 0; }
+  }
+  @keyframes processVisFinal {
+    0%, 60% { opacity: 0; }
+    85%, 100% { opacity: 1; }
+  }
+  @keyframes processCap1 {
+    0%, 20% { opacity: 1; }
+    45%, 100% { opacity: 0; }
+  }
+  @keyframes processCap2 {
+    0%, 20% { opacity: 0; }
+    45%, 60% { opacity: 1; }
+    85%, 100% { opacity: 0; }
+  }
+  @keyframes processCap3 {
+    0%, 60% { opacity: 0; }
+    85%, 100% { opacity: 1; }
+  }
+  @keyframes processLine1 { 0%, 20% { background: oklch(55% 0.12 55); } 45%, 100% { background: oklch(22% 0.01 260 / 0.2); } }
+  @keyframes processLine2 { 0%, 20% { background: oklch(22% 0.01 260 / 0.2); } 45%, 60% { background: oklch(55% 0.12 55); } 85%, 100% { background: oklch(22% 0.01 260 / 0.2); } }
+  @keyframes processLine3 { 0%, 60% { background: oklch(22% 0.01 260 / 0.2); } 85%, 100% { background: oklch(55% 0.12 55); } }
+
+  .process-visual-cad, .process-visual-render, .process-visual-final,
+  .process-caption-1, .process-caption-2, .process-caption-3 { opacity: 0; }
+  .process-visual-final, .process-caption-3 { opacity: 1; }
+  .process-line-1, .process-line-2, .process-line-3 { background: oklch(22% 0.01 260 / 0.2); }
+  .process-line-3 { background: oklch(55% 0.12 55); }
+
+  @supports (animation-timeline: view()) {
+    .process-visual-module {
+      view-timeline-name: --process-visual;
+      view-timeline-axis: block;
+    }
+    .process-visual-cad, .process-caption-1 { opacity: 1; }
+    .process-visual-render, .process-visual-final, .process-caption-2, .process-caption-3 { opacity: 0; }
+    .process-line-1 { background: oklch(55% 0.12 55); }
+    .process-line-3 { background: oklch(22% 0.01 260 / 0.2); }
+
+    .process-visual-cad, .process-caption-1, .process-line-1 {
+      animation: processVisCad 1s linear both;
+      animation-timeline: --process-visual;
+      animation-range: entry 10% cover 70%;
+    }
+    .process-visual-render, .process-caption-2, .process-line-2 {
+      animation: processVisRender 1s linear both;
+      animation-timeline: --process-visual;
+      animation-range: entry 10% cover 70%;
+    }
+    .process-visual-final, .process-caption-3, .process-line-3 {
+      animation: processVisFinal 1s linear both;
+      animation-timeline: --process-visual;
+      animation-range: entry 10% cover 70%;
+    }
+  }
+
+  @keyframes processVisCad {
+    0%, 30% { opacity: 1; }
+    48%, 100% { opacity: 0; }
+  }
+  @keyframes processVisRender {
+    0%, 30% { opacity: 0; }
+    48%, 65% { opacity: 1; }
+    83%, 100% { opacity: 0; }
+  }
+  @keyframes processVisFinal {
+    0%, 65% { opacity: 0; }
+    83%, 100% { opacity: 1; }
+  }
+  @keyframes processLine1 { 0%, 30% { background: oklch(55% 0.12 55); } 48%, 100% { background: oklch(22% 0.01 260 / 0.2); } }
+  @keyframes processLine2 { 0%, 30% { background: oklch(22% 0.01 260 / 0.2); } 48%, 65% { background: oklch(55% 0.12 55); } 83%, 100% { background: oklch(22% 0.01 260 / 0.2); } }
+  @keyframes processLine3 { 0%, 65% { background: oklch(22% 0.01 260 / 0.2); } 83%, 100% { background: oklch(55% 0.12 55); } }
+
+  @media (prefers-reduced-motion: reduce) {
+    .process-visual-cad, .process-visual-render, .process-caption-1, .process-caption-2, .process-line-1, .process-line-2 {
+      animation: none !important; opacity: 0 !important;
+    }
+    .process-visual-final, .process-caption-3, .process-line-3 { animation: none !important; opacity: 1 !important; }
+    .process-line-3 { background: oklch(55% 0.12 55) !important; }
+  }
+</style>
+<style>
+  /* ===== Mobile responsiveness ===== */
+  html { -webkit-text-size-adjust: 100%; }
+  img { max-width: 100%; }
+
+  #mobile-menu-btn { display: none; }
+
+  @media (max-width: 760px) {
+    header, footer, section { padding-left: 20px !important; padding-right: 20px !important; }
+    header { padding-top: 14px !important; padding-bottom: 14px !important; position: relative; flex-wrap: wrap; }
+
+    h1 { font-size: 30px !important; line-height: 1.15 !important; max-width: 100% !important; }
+    h2 { font-size: 23px !important; max-width: 100% !important; }
+    h3 { font-size: 19px !important; }
+    p { max-width: 100% !important; }
+
+    /* Hamburger nav */
+    #mobile-menu-btn {
+      display: flex !important; align-items: center; justify-content: center;
+      width: 38px; height: 38px; border: 1px solid oklch(22% 0.01 260 / 0.3);
+      background: transparent; font-size: 18px; cursor: pointer; color: oklch(22% 0.01 260);
+      border-radius: 2px;
+    }
+    #site-nav {
+      display: none !important;
+      position: absolute; top: 100%; left: 0; right: 0; z-index: 60;
+      background: oklch(98% 0.005 80 / 0.98); backdrop-filter: blur(6px);
+      flex-direction: column !important; align-items: stretch !important; gap: 0 !important;
+      border-bottom: 1px solid oklch(22% 0.01 260 / 0.12);
+      padding: 6px 20px 18px !important;
+    }
+    #site-nav.nav-open { display: flex !important; }
+    #site-nav a { padding: 13px 2px !important; border-bottom: 1px solid oklch(22% 0.01 260 / 0.08); font-size: 15px !important; text-align: left; }
+    #site-nav a[href="#kontakt"] { margin-top: 10px !important; text-align: center !important; border-bottom: 1px solid oklch(22% 0.01 260) !important; }
+
+    /* Grids -> single column */
+    [style*="grid-template-columns: 1.1fr 1fr"],
+    [style*="grid-template-columns: 42% 1fr"],
+    [style*="grid-template-columns: 1fr 1fr"],
+    [style*="grid-template-columns: repeat(3, 1fr)"] {
+      grid-template-columns: 1fr !important;
+      gap: 28px !important;
+    }
+
+    /* Hero: show the video/photo above the text on mobile */
+    #hero-media { order: -1 !important; margin-bottom: 28px !important; }
+    #hero-text { order: 2 !important; }
+    [style*="grid-template-columns: repeat(4, 1fr)"] {
+      grid-template-columns: repeat(2, 1fr) !important;
+    }
+
+    /* Sidebar-style border-left blocks -> stack on top with a top border instead */
+    [style*="border-left: 1px solid oklch(22% 0.01 260 / 0.15); padding-left: 48px"] {
+      border-left: none !important;
+      padding-left: 0 !important;
+      border-top: 1px solid oklch(22% 0.01 260 / 0.15) !important;
+      padding-top: 28px !important;
+    }
+
+    /* Decorative background elements: hide to avoid clutter/overflow on small screens */
+    img[src*="sygnet-transparent"],
+    img[src*="event-watermark"] { display: none !important; }
+
+    /* Oversized decorative numerals */
+    [style*="font-size: 300px"] { font-size: 96px !important; }
+    [style*="font-size: 460px"] { font-size: 140px !important; }
+    [style*="font-size: 76px"]  { font-size: 44px !important; }
+    [style*="font-size: 180px"] { font-size: 76px !important; }
+    [style*="line-height: 1.45"] { font-size: 19px !important; }
+
+    /* "Selected locations" atlas block: shrink all the big city-name spans */
+    .atlas-cities span { font-size: 15px !important; }
+
+    /* Process section: let the two flex columns stack fully */
+    [style*="flex: 1 1 560px"],
+    [style*="flex: 1 1 320px"] { flex: 1 1 100% !important; max-width: 100% !important; min-width: 0 !important; }
+
+    /* Stats row (5 kontynentów / 30+ lat) wraps naturally via flex-wrap already present */
+
+    footer { flex-direction: column !important; align-items: flex-start !important; }
+
+    /* CTA button rows: stack instead of side-by-side */
+    div[style*="display: flex; gap: 16px; margin-bottom: 36px"] { flex-direction: column !important; gap: 12px !important; }
+    div[style*="display: flex; gap: 16px; margin-bottom: 36px"] a { text-align: center !important; }
+  }
+
+  @media (max-width: 480px) {
+    h1 { font-size: 25px !important; }
+    [style*="grid-template-columns: repeat(4, 1fr)"] { grid-template-columns: 1fr !important; }
+    [style*="font-size: 300px"] { font-size: 64px !important; }
+    [style*="font-size: 460px"] { font-size: 96px !important; }
+  }
+</style>
+</head>
+<body>
+<div style="font-family: 'Instrument Sans', sans-serif; color: oklch(22% 0.01 260); background: oklch(98% 0.005 80); width: 100%; min-height: 100vh; line-height: 1.5; position: relative;">
+  <header style="position: sticky; top: 0; z-index: 50; background: oklch(98% 0.005 80 / 0.92); backdrop-filter: blur(6px); border-bottom: 1px solid oklch(22% 0.01 260 / 0.12); display: flex; align-items: center; justify-content: space-between; padding: 22px 56px;">
+    <div style="display: flex; align-items: center; gap: 12px;">
+      <a href="index.html" aria-label="G.RAMPS Polska — strona główna" style="display: flex; align-items: center;">
+        <img src="assets/gramps-logo.webp" alt="G.RAMPS Polska — oficjalny przedstawiciel i dystrybutor" style="height: 42px; width: auto; display: block;" />
+      </a>
+    </div>
+    <button id="mobile-menu-btn" onclick="toggleMobileMenu()" aria-label="Menu" aria-expanded="false">&#9776;</button>
+    <nav id="site-nav" style="display: flex; align-items: center; gap: 36px;">
+      <a href="realizacje.html" style="color: oklch(22% 0.01 260); text-decoration: none; font-size: 14px;">Realizacje</a>
+      <a href="index.html#kompetencje" style="color: oklch(22% 0.01 260); text-decoration: none; font-size: 14px;">Kompetencje</a>
+      <a href="index.html#uslugi" style="color: oklch(22% 0.01 260); text-decoration: none; font-size: 14px;">Proces</a>
+      <a href="index.html#samorzady" style="color: oklch(22% 0.01 260); text-decoration: none; font-size: 14px;">Dla samorządów</a>
+      <a href="historia.html" style="color: oklch(22% 0.01 260); text-decoration: none; font-size: 14px;">Historia</a>
+      <a href="index.html#kontakt" style="color: oklch(98% 0.005 80); text-decoration: none; font-size: 14px; background: oklch(22% 0.01 260); padding: 10px 20px; border: 1px solid oklch(22% 0.01 260);" style-hover="background: oklch(98% 0.005 80); color: oklch(22% 0.01 260);">Kontakt</a>
+    </nav>
+  </header>
+
+  <section style="position: relative; overflow: hidden;">
+    <div style="aspect-ratio: 16/8; width: 100%; background: oklch(22% 0.01 260); position: relative; overflow: hidden;">
+      <iframe src="https://www.youtube.com/embed/ZZ8ed7XHXQ8?autoplay=1&mute=1&controls=0&loop=1&playlist=ZZ8ed7XHXQ8&playsinline=1&rel=0&disablekb=1&iv_load_policy=3" title="Brussels Urban Session 2024" tabindex="-1" aria-hidden="true" allow="autoplay; encrypted-media" style="position: absolute; top: 50%; left: 50%; width: 177.78vh; min-width: 100%; height: 100%; min-height: 56.25vw; transform: translate(-50%, -50%); border: 0; pointer-events: none; opacity: 0.85;"></iframe>
+    </div>
+    <div style="position: absolute; inset: 0; background: linear-gradient(to top, oklch(22% 0.01 260 / 0.85), transparent 55%); display: flex; flex-direction: column; justify-content: flex-end; padding: 56px; pointer-events: none;">
+      <div style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.08em; color: oklch(65% 0.14 55); margin-bottom: 16px;">REALIZACJA I DOŚWIADCZENIE G.RAMPS</div>
+      <h1 style="font-size: 48px; font-weight: 600; margin: 0 0 10px; letter-spacing: -0.01em; max-width: 780px; color: oklch(98% 0.005 80);">Brussels Urban Session</h1>
+      <div style="font-size: 17px; color: oklch(98% 0.005 80 / 0.8);">Schaarbeek, Bruksela, Belgia — 2024</div>
+    </div>
+  </section>
+
+  <section style="padding: 56px; display: grid; grid-template-columns: 220px 1fr; gap: 64px; max-width: 1180px; margin: 0 auto; border-bottom: 1px solid oklch(22% 0.01 260 / 0.12);">
+    <div>
+      <div style="position: sticky; top: 100px;">
+        <div style="margin-bottom: 28px;">
+          <div style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.06em; color: oklch(22% 0.01 260 / 0.5); margin-bottom: 6px;">TYP OBIEKTU</div>
+          <div style="font-size: 15px; color: oklch(22% 0.01 260 / 0.85); line-height: 1.4;">Tymczasowa infrastruktura BMX Freestyle na wydarzenie</div>
+        </div>
+        <div style="margin-bottom: 28px;">
+          <div style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.06em; color: oklch(22% 0.01 260 / 0.5); margin-bottom: 6px;">ZAKRES</div>
+          <div style="font-size: 15px; color: oklch(22% 0.01 260 / 0.85); line-height: 1.4;">Montaż i obsługa obiektu na wydarzenie międzynarodowe</div>
+        </div>
+        <div>
+          <div style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.06em; color: oklch(22% 0.01 260 / 0.5); margin-bottom: 6px;">ROK</div>
+          <div style="font-size: 15px; color: oklch(22% 0.01 260 / 0.85);">2024</div>
+        </div>
+      </div>
+    </div>
+
+    <div style="max-width: 720px;">
+      <p style="font-size: 22px; line-height: 1.5; color: oklch(22% 0.01 260 / 0.85); font-weight: 500; margin: 0 0 40px;">Wydarzenie z udziałem czołowych zawodników świata w centrum Brukseli. Park pozostał dłużej niż standardowo, dając zawodnikom z całego świata możliwość przygotowania do zawodów w Paryżu.</p>
+
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px;">
+        <div style="aspect-ratio: 4/5; overflow: hidden;"><img src="https://g-ramps.com/images/gramps_mediafiles/projects/PN1120/gallery/4.png" alt="Brussels Urban Session 2024 — zdjęcie 1" loading="lazy" style="width: 100%; height: 100%; object-fit: cover; display: block;" /></div>
+        <div style="aspect-ratio: 4/5; overflow: hidden;"><img src="https://g-ramps.com/images/gramps_mediafiles/projects/PN1120/gallery/1.png" alt="Brussels Urban Session 2024 — zdjęcie 2" loading="lazy" style="width: 100%; height: 100%; object-fit: cover; display: block;" /></div>
+      </div>
+
+      <div style="aspect-ratio: 16/9; overflow: hidden; margin-bottom: 16px;">
+        <img src="https://g-ramps.com/images/gramps_mediafiles/projects/PN1120/gallery/2.png" alt="Brussels Urban Session 2024 — zdjęcie 3" loading="lazy" style="width: 100%; height: 100%; object-fit: cover; display: block;" />
+      </div>
+
+      <p style="font-size: 26px; line-height: 1.4; font-weight: 500; color: oklch(22% 0.01 260); margin: 48px 0; padding-left: 24px; border-left: 3px solid oklch(55% 0.12 55);">Ta sama infrastruktura zawodnicza, technologia i geometria — teraz dostępna dla polskich samorządów.</p>
+
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 56px;">
+        <div style="aspect-ratio: 3/4; overflow: hidden;"><img src="https://g-ramps.com/images/gramps_mediafiles/projects/PN1120/gallery/3.png" alt="Brussels Urban Session 2024 — zdjęcie 4" loading="lazy" style="width: 100%; height: 100%; object-fit: cover; display: block;" /></div>
+        <div style="aspect-ratio: 3/4; overflow: hidden;"><img src="https://g-ramps.com/images/gramps_mediafiles/projects/PN1120/gallery/5.png" alt="Brussels Urban Session 2024 — zdjęcie 5" loading="lazy" style="width: 100%; height: 100%; object-fit: cover; display: block;" /></div>
+      </div>
+
+      <a href="realizacje.html" style="text-decoration: none; color: oklch(22% 0.01 260); padding: 15px 26px; font-size: 14.5px; border: 1px solid oklch(22% 0.01 260 / 0.3); display: inline-block;" style-hover="border-color: oklch(22% 0.01 260);">← Wróć do listy realizacji</a>
+    </div>
+  </section>
+
+  <footer style="padding: 48px 56px; border-top: 1px solid oklch(22% 0.01 260 / 0.15); display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 24px;">
+    <div>
+      <img src="assets/gramps-logo.webp" alt="G.RAMPS Polska" style="height: 26px; width: auto; display: block; margin-bottom: 12px;" />
+      <div style="font-size: 13px; color: oklch(22% 0.01 260 / 0.6); margin-bottom: 2px;">Projektowanie i realizacja infrastruktury sportów miejskich</div>
+      <div style="font-size: 13px; color: oklch(22% 0.01 260 / 0.6);">Oficjalny przedstawiciel i dystrybutor G.RAMPS w Polsce</div>
+    </div>
+    <div style="display: flex; gap: 28px; font-size: 13px; color: oklch(22% 0.01 260 / 0.6);">
+      <span>Polityka prywatności</span>
+      <span>Nota prawna</span>
+      <span style="font-family: 'IBM Plex Mono', monospace;">© 2026</span>
+    </div>
+  </footer>
+
+</div>
+<script src="app.js"></script>
+</body>
+</html>
