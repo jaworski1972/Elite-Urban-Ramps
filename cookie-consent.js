@@ -1,6 +1,5 @@
 (function () {
-  // TODO: replace with real GA4 Measurement ID once provided (format: G-XXXXXXXXXX)
-  var GA_MEASUREMENT_ID = 'G-PLACEHOLDER';
+  var GA_MEASUREMENT_ID = 'G-0WJ75KE0BW';
   var STORAGE_KEY = 'gramps_cookie_consent'; // 'accepted' | 'rejected'
 
   function loadGoogleAnalytics() {
