@@ -2,18 +2,12 @@
   var GA_MEASUREMENT_ID = 'G-0WJ75KE0BW';
   var STORAGE_KEY = 'gramps_cookie_consent'; // 'accepted' | 'rejected'
 
-  function loadGoogleAnalytics() {
-    if (window.__gaLoaded) return;
-    window.__gaLoaded = true;
-    var s = document.createElement('script');
-    s.async = true;
-    s.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA_MEASUREMENT_ID;
-    document.head.appendChild(s);
-    window.dataLayer = window.dataLayer || [];
-    function gtag() { window.dataLayer.push(arguments); }
-    window.gtag = gtag;
-    gtag('js', new Date());
-    gtag('config', GA_MEASUREMENT_ID, { anonymize_ip: true });
+  function updateConsent(granted) {
+    if (window.gtag) {
+      window.gtag('consent', 'update', {
+        'analytics_storage': granted ? 'granted' : 'denied'
+      });
+    }
   }
 
   function buildBanner() {
@@ -42,11 +36,12 @@
 
     el.querySelector('#cc-accept').addEventListener('click', function () {
       localStorage.setItem(STORAGE_KEY, 'accepted');
-      loadGoogleAnalytics();
+      updateConsent(true);
       el.remove();
     });
     el.querySelector('#cc-reject').addEventListener('click', function () {
       localStorage.setItem(STORAGE_KEY, 'rejected');
+      updateConsent(false);
       el.remove();
     });
 
@@ -56,7 +51,7 @@
   document.addEventListener('DOMContentLoaded', function () {
     var choice = localStorage.getItem(STORAGE_KEY);
     if (choice === 'accepted') {
-      loadGoogleAnalytics();
+      updateConsent(true);
     } else if (choice !== 'rejected') {
       buildBanner();
     }
