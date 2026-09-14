@@ -1,2 +1,5 @@
 User-agent: *
-Disallow: /
+Allow: /
+Disallow: /johann.html
+
+Sitemap: https://g-ramps.pl/sitemap.xml
