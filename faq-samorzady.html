@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="favicon-192.png">
+<link rel="icon" type="image/png" sizes="512x512" href="favicon-512.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<title>Pytania i odpowiedzi dla samorządów | G.RAMPS Polska</title>
+<meta name="description" content="Najczęstsze pytania urzędników i samorządów o budowę skateparku klasy zawodniczej — normy, proces inwestycyjny, finansowanie, utrzymanie.">
+<link rel="canonical" href="https://g-ramps.pl/faq-samorzady.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  body { margin: 0; background: oklch(98% 0.005 80); }
+  * { box-sizing: border-box; }
+  ::selection { background: oklch(55% 0.12 55 / 0.25); }
+  @keyframes eventMarqueeScroll {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+  .event-marquee-track { animation: eventMarqueeScroll 42s linear infinite; }
+  .event-marquee-mask:hover .event-marquee-track { animation-play-state: paused; }
+  @media (prefers-reduced-motion: reduce) {
+    .event-marquee-track { animation: none; flex-wrap: wrap; white-space: normal; }
+    .event-marquee-set:nth-child(2) { display: none; }
+    .event-marquee-mask { -webkit-mask-image: none; mask-image: none; }
+  }
+  @keyframes atlasMarqueeScroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+  .atlas-marquee-track { animation: atlasMarqueeScroll 24s linear infinite; }
+  .atlas-marquee-mask:hover .atlas-marquee-track { animation-play-state: paused; }
+  @media (prefers-reduced-motion: reduce) {
+    .atlas-marquee-track { animation: none; }
+    .atlas-marquee-set:nth-child(2) { display: none; }
+    .atlas-marquee-mask { -webkit-mask-image: none; mask-image: none; }
+  }
+  @keyframes eurCadDraw { from { stroke-dashoffset: 480; } to { stroke-dashoffset: 0; } }
+  #eur-cad-profile { stroke-dasharray: 480; stroke-dashoffset: 0; animation: eurCadDraw 1.4s cubic-bezier(.2,.7,.3,1) 0.3s 1 both; }
+  @media (prefers-reduced-motion: reduce) {
+    #eur-cad-profile { animation: none !important; stroke-dashoffset: 0 !important; }
+  }
+
+  @keyframes processVisCad {
+    0%, 20% { opacity: 1; }
+    45%, 100% { opacity: 0; }
+  }
+  @keyframes processVisRender {
+    0%, 20% { opacity: 0; }
+    45%, 60% { opacity: 1; }
+    85%, 100% { opacity: 0; }
+  }
+  @keyframes processVisFinal {
+    0%, 60% { opacity: 0; }
+    85%, 100% { opacity: 1; }
+  }
+  @keyframes processCap1 {
+    0%, 20% { opacity: 1; }
+    45%, 100% { opacity: 0; }
+  }
+  @keyframes processCap2 {
+    0%, 20% { opacity: 0; }
+    45%, 60% { opacity: 1; }
+    85%, 100% { opacity: 0; }
+  }
+  @keyframes processCap3 {
+    0%, 60% { opacity: 0; }
+    85%, 100% { opacity: 1; }
+  }
+  @keyframes processLine1 { 0%, 20% { background: oklch(55% 0.12 55); } 45%, 100% { background: oklch(22% 0.01 260 / 0.2); } }
+  @keyframes processLine2 { 0%, 20% { background: oklch(22% 0.01 260 / 0.2); } 45%, 60% { background: oklch(55% 0.12 55); } 85%, 100% { background: oklch(22% 0.01 260 / 0.2); } }
+  @keyframes processLine3 { 0%, 60% { background: oklch(22% 0.01 260 / 0.2); } 85%, 100% { background: oklch(55% 0.12 55); } }
+
+  .process-visual-cad, .process-visual-render, .process-visual-final,
+  .process-caption-1, .process-caption-2, .process-caption-3 { opacity: 0; }
+  .process-visual-final, .process-caption-3 { opacity: 1; }
+  .process-line-1, .process-line-2, .process-line-3 { background: oklch(22% 0.01 260 / 0.2); }
+  .process-line-3 { background: oklch(55% 0.12 55); }
+
+  @supports (animation-timeline: view()) {
+    .process-visual-module {
+      view-timeline-name: --process-visual;
+      view-timeline-axis: block;
+    }
+    .process-visual-cad, .process-caption-1 { opacity: 1; }
+    .process-visual-render, .process-visual-final, .process-caption-2, .process-caption-3 { opacity: 0; }
+    .process-line-1 { background: oklch(55% 0.12 55); }
+    .process-line-3 { background: oklch(22% 0.01 260 / 0.2); }
+
+    .process-visual-cad, .process-caption-1, .process-line-1 {
+      animation: processVisCad 1s linear both;
+      animation-timeline: --process-visual;
+      animation-range: entry 10% cover 70%;
+    }
+    .process-visual-render, .process-caption-2, .process-line-2 {
+      animation: processVisRender 1s linear both;
+      animation-timeline: --process-visual;
+      animation-range: entry 10% cover 70%;
+    }
+    .process-visual-final, .process-caption-3, .process-line-3 {
+      animation: processVisFinal 1s linear both;
+      animation-timeline: --process-visual;
+      animation-range: entry 10% cover 70%;
+    }
+  }
+
+  @keyframes processVisCad {
+    0%, 30% { opacity: 1; }
+    48%, 100% { opacity: 0; }
+  }
+  @keyframes processVisRender {
+    0%, 30% { opacity: 0; }
+    48%, 65% { opacity: 1; }
+    83%, 100% { opacity: 0; }
+  }
+  @keyframes processVisFinal {
+    0%, 65% { opacity: 0; }
+    83%, 100% { opacity: 1; }
+  }
+  @keyframes processLine1 { 0%, 30% { background: oklch(55% 0.12 55); } 48%, 100% { background: oklch(22% 0.01 260 / 0.2); } }
+  @keyframes processLine2 { 0%, 30% { background: oklch(22% 0.01 260 / 0.2); } 48%, 65% { background: oklch(55% 0.12 55); } 83%, 100% { background: oklch(22% 0.01 260 / 0.2); } }
+  @keyframes processLine3 { 0%, 65% { background: oklch(22% 0.01 260 / 0.2); } 83%, 100% { background: oklch(55% 0.12 55); } }
+
+  @media (prefers-reduced-motion: reduce) {
+    .process-visual-cad, .process-visual-render, .process-caption-1, .process-caption-2, .process-line-1, .process-line-2 {
+      animation: none !important; opacity: 0 !important;
+    }
+    .process-visual-final, .process-caption-3, .process-line-3 { animation: none !important; opacity: 1 !important; }
+    .process-line-3 { background: oklch(55% 0.12 55) !important; }
+  }
+</style>
+<style>
+  /* ===== Mobile responsiveness ===== */
+  html { -webkit-text-size-adjust: 100%; }
+  img { max-width: 100%; }
+
+  #mobile-menu-btn { display: none; }
+
+  @media (max-width: 760px) {
+    header, footer, section { padding-left: 20px !important; padding-right: 20px !important; }
+    header { padding-top: 14px !important; padding-bottom: 14px !important; position: relative; flex-wrap: wrap; }
+
+    h1 { font-size: 30px !important; line-height: 1.15 !important; max-width: 100% !important; }
+    h2 { font-size: 23px !important; max-width: 100% !important; }
+    h3 { font-size: 19px !important; }
+    p { max-width: 100% !important; }
+
+    /* Hamburger nav */
+    #mobile-menu-btn {
+      display: flex !important; align-items: center; justify-content: center;
+      width: 38px; height: 38px; border: 1px solid oklch(22% 0.01 260 / 0.3);
+      background: transparent; font-size: 18px; cursor: pointer; color: oklch(22% 0.01 260);
+      border-radius: 2px;
+    }
+    #site-nav {
+      display: none !important;
+      position: absolute; top: 100%; left: 0; right: 0; z-index: 60;
+      background: oklch(98% 0.005 80 / 0.98); backdrop-filter: blur(6px);
+      flex-direction: column !important; align-items: stretch !important; gap: 0 !important;
+      border-bottom: 1px solid oklch(22% 0.01 260 / 0.12);
+      padding: 6px 20px 18px !important;
+    }
+    #site-nav.nav-open { display: flex !important; }
+    #site-nav a { padding: 13px 2px !important; border-bottom: 1px solid oklch(22% 0.01 260 / 0.08); font-size: 15px !important; text-align: left; }
+    #site-nav a[href="#kontakt"] { margin-top: 10px !important; text-align: center !important; border-bottom: 1px solid oklch(22% 0.01 260) !important; }
+
+    /* Grids -> single column */
+    [style*="grid-template-columns: 1.1fr 1fr"],
+    [style*="grid-template-columns: 42% 1fr"],
+    [style*="grid-template-columns: 1fr 1fr"],
+    [style*="grid-template-columns: repeat(3, 1fr)"] {
+      grid-template-columns: 1fr !important;
+      gap: 28px !important;
+    }
+
+    /* Hero: show the video/photo above the text on mobile */
+    #hero-media { order: -1 !important; margin-bottom: 28px !important; }
+    #hero-text { order: 2 !important; }
+    [style*="grid-template-columns: repeat(4, 1fr)"] {
+      grid-template-columns: repeat(2, 1fr) !important;
+    }
+
+    /* Sidebar-style border-left blocks -> stack on top with a top border instead */
+    [style*="border-left: 1px solid oklch(22% 0.01 260 / 0.15); padding-left: 48px"] {
+      border-left: none !important;
+      padding-left: 0 !important;
+      border-top: 1px solid oklch(22% 0.01 260 / 0.15) !important;
+      padding-top: 28px !important;
+    }
+
+    /* Decorative background elements: hide to avoid clutter/overflow on small screens */
+    img[src*="sygnet-transparent"],
+    img[src*="event-watermark"] { display: none !important; }
+
+    /* Oversized decorative numerals */
+    [style*="font-size: 300px"] { font-size: 96px !important; }
+    [style*="font-size: 460px"] { font-size: 140px !important; }
+    [style*="font-size: 76px"]  { font-size: 44px !important; }
+    [style*="font-size: 180px"] { font-size: 76px !important; }
+    [style*="line-height: 1.45"] { font-size: 19px !important; }
+
+    /* "Selected locations" atlas block: shrink all the big city-name spans */
+    .atlas-cities span { font-size: 15px !important; }
+
+    /* Process section: let the two flex columns stack fully */
+    [style*="flex: 1 1 560px"],
+    [style*="flex: 1 1 320px"] { flex: 1 1 100% !important; max-width: 100% !important; min-width: 0 !important; }
+
+    /* Stats row (5 kontynentów / 30+ lat) wraps naturally via flex-wrap already present */
+
+    footer { flex-direction: column !important; align-items: flex-start !important; }
+
+    /* CTA button rows: stack instead of side-by-side */
+    div[style*="display: flex; gap: 16px; margin-bottom: 36px"] { flex-direction: column !important; gap: 12px !important; }
+    div[style*="display: flex; gap: 16px; margin-bottom: 36px"] a { text-align: center !important; }
+  }
+
+  @media (max-width: 480px) {
+    h1 { font-size: 25px !important; }
+    [style*="grid-template-columns: repeat(4, 1fr)"] { grid-template-columns: 1fr !important; }
+    [style*="font-size: 300px"] { font-size: 64px !important; }
+    [style*="font-size: 460px"] { font-size: 96px !important; }
+  }
+</style>
+</head>
+<body>
+<div style="font-family: 'Instrument Sans', sans-serif; color: oklch(22% 0.01 260); background: oklch(98% 0.005 80); width: 100%; min-height: 100vh; line-height: 1.5; position: relative;">
+  <header style="position: sticky; top: 0; z-index: 50; background: oklch(98% 0.005 80 / 0.92); backdrop-filter: blur(6px); border-bottom: 1px solid oklch(22% 0.01 260 / 0.12); display: flex; align-items: center; justify-content: space-between; padding: 22px 56px;">
+    <div style="display: flex; align-items: center; gap: 12px;">
+      <a href="index.html" aria-label="G.RAMPS Polska — strona główna" style="display: flex; align-items: center;">
+        <img src="assets/gramps-logo.webp" alt="G.RAMPS Polska — oficjalny przedstawiciel i dystrybutor" style="height: 42px; width: auto; display: block;" />
+      </a>
+    </div>
+    <button id="mobile-menu-btn" onclick="toggleMobileMenu()" aria-label="Menu" aria-expanded="false">&#9776;</button>
+    <nav id="site-nav" style="display: flex; align-items: center; gap: 36px;">
+      <a href="realizacje.html" style="color: oklch(22% 0.01 260); text-decoration: none; font-size: 14px;">Realizacje</a>
+      <a href="index.html#kompetencje" style="color: oklch(22% 0.01 260); text-decoration: none; font-size: 14px;">Kompetencje</a>
+      <a href="index.html#uslugi" style="color: oklch(22% 0.01 260); text-decoration: none; font-size: 14px;">Proces</a>
+      <a href="index.html#samorzady" style="color: oklch(22% 0.01 260); text-decoration: none; font-size: 14px;">Dla samorządów</a>
+      <a href="historia.html" style="color: oklch(22% 0.01 260); text-decoration: none; font-size: 14px;">Historia</a>
+      <a href="index.html#kontakt" style="color: oklch(98% 0.005 80); text-decoration: none; font-size: 14px; background: oklch(22% 0.01 260); padding: 10px 20px; border: 1px solid oklch(22% 0.01 260);" style-hover="background: oklch(98% 0.005 80); color: oklch(22% 0.01 260);">Kontakt</a>
+    </nav>
+  </header>
+
+  <section style="padding: 64px 56px 24px; max-width: 780px; margin: 0 auto;">
+    <div style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.08em; color: oklch(55% 0.12 55); margin-bottom: 16px;">DLA SAMORZĄDÓW</div>
+    <h1 style="font-size: 38px; font-weight: 600; margin: 0 0 16px; letter-spacing: -0.01em;">Pytania i odpowiedzi dla urzędników</h1>
+    <p style="font-size: 17px; color: oklch(22% 0.01 260 / 0.7); line-height: 1.6; margin: 0;">Najczęstsze pytania, jakie pojawiają się na etapie planowania inwestycji w infrastrukturę sportów miejskich — normy, proces, finansowanie i utrzymanie.</p>
+  </section>
+
+  <section style="padding: 24px 56px 56px; max-width: 780px; margin: 0 auto; border-bottom: 1px solid oklch(22% 0.01 260 / 0.12);">
+      <h2 style="font-size: 24px; font-weight: 600; margin: 56px 0 24px; letter-spacing: -0.01em; padding-top: 8px; border-top: 1px solid oklch(22% 0.01 260 / 0.12);">Podstawy techniczne</h2>
+
+      <div style="margin-bottom: 32px;">
+        <h3 style="font-size: 18px; font-weight: 600; margin: 0 0 10px; letter-spacing: -0.005em;">Czym różni się park klasy zawodniczej (UCI-grade) od standardowego skateparku miejskiego?</h3>
+        <p style="font-size: 15px; color: oklch(22% 0.01 260 / 0.78); line-height: 1.65; margin: 0;">Standardowy skatepark projektuje się pod rekreację — swobodną jazdę mieszkańców na różnym poziomie zaawansowania. Park klasy zawodniczej musi dodatkowo spełniać wymogi geometrii, które pozwalają rozegrać na nim oficjalne zawody — odpowiednie promienie przejść, wysokości i rozstawy przeszkód umożliwiające określone sekwencje trików w formacie zawodniczym. G.RAMPS buduje infrastrukturę wykorzystywaną m.in. na Mistrzostwach Świata i Europy UCI BMX Freestyle — ta sama technologia i geometria trafia do realizacji w Polsce, nawet gdy dany obiekt nie jest budowany z myślą o zawodach.</p>
+      </div>
+
+      <div style="margin-bottom: 32px;">
+        <h3 style="font-size: 18px; font-weight: 600; margin: 0 0 10px; letter-spacing: -0.005em;">Jakiej normy bezpieczeństwa musi spełniać skatepark w Polsce i UE?</h3>
+        <p style="font-size: 15px; color: oklch(22% 0.01 260 / 0.78); line-height: 1.65; margin: 0;">Obowiązuje europejska norma EN 14974:2019 — Polska była jednym z krajów biorących udział w jej ostatniej rewizji. Norma określa m.in. minimalne promienie krawędzi (min. 3 mm na każdej dostępnej krawędzi), wysokość barier zabezpieczających przy podestach (min. 1,2 m) oraz wymogi okresowych przeglądów technicznych, zbliżone do normy dotyczącej placów zabaw (EN 1176). Nie obejmuje ona torów ziemnych typu dirt.</p>
+      </div>
+
+      <div style="margin-bottom: 32px;">
+        <h3 style="font-size: 18px; font-weight: 600; margin: 0 0 10px; letter-spacing: -0.005em;">Beton, moduły czy stal — która technologia jest odpowiednia dla mojej gminy?</h3>
+        <p style="font-size: 15px; color: oklch(22% 0.01 260 / 0.78); line-height: 1.65; margin: 0;">To zależy od charakteru inwestycji. Konstrukcje betonowe wylewane na miejscu są trwałe i pozbawione elementów do okresowej wymiany, ale wymagają dłuższego czasu realizacji. Konstrukcje modułowe (metal, drewno, kompozyty) — technologia, w której G.RAMPS ma wieloletnie doświadczenie z obiektów zawodniczych i eventowych na całym świecie — pozwalają na szybszy montaż i elastyczną rozbudowę etapami, co bywa istotne przy budżetach rozłożonych na kilka lat budżetowych.</p>
+      </div>
+
+      <h2 style="font-size: 24px; font-weight: 600; margin: 56px 0 24px; letter-spacing: -0.01em; padding-top: 8px; border-top: 1px solid oklch(22% 0.01 260 / 0.12);">Proces inwestycyjny i przetargowy</h2>
+
+      <div style="margin-bottom: 32px;">
+        <h3 style="font-size: 18px; font-weight: 600; margin: 0 0 10px; letter-spacing: -0.005em;">Od czego zacząć — jaki jest pierwszy krok przed zamówieniem projektu?</h3>
+        <p style="font-size: 15px; color: oklch(22% 0.01 260 / 0.78); line-height: 1.65; margin: 0;">Zanim powstanie projekt, warto wykonać ocenę terenu — ukształtowanie, nośność gruntu, odwodnienie, dostępność komunikacyjna. Błędy na tym etapie najwięcej kosztują na etapie realizacji. Dobry wykonawca powinien to zaproponować, zanim jeszcze zapyta o budżet.</p>
+      </div>
+
+      <div style="margin-bottom: 32px;">
+        <h3 style="font-size: 18px; font-weight: 600; margin: 0 0 10px; letter-spacing: -0.005em;">Jak sformułować specyfikację przetargową, żeby nie wykluczyć dobrych wykonawców?</h3>
+        <p style="font-size: 15px; color: oklch(22% 0.01 260 / 0.78); line-height: 1.65; margin: 0;">Zbyt wąska specyfikacja — np. wymóg konkretnego, opatentowanego rozwiązania jednej firmy — automatycznie eliminuje resztę rynku i naraża gminę na zarzut ograniczania konkurencji. Bezpieczniejsze jest opisywanie wymaganych parametrów funkcjonalnych (np. zgodność z EN 14974, minimalne wymiary poszczególnych elementów) zamiast konkretnych marek czy zastrzeżonych technologii.</p>
+      </div>
+
+      <div style="margin-bottom: 32px;">
+        <h3 style="font-size: 18px; font-weight: 600; margin: 0 0 10px; letter-spacing: -0.005em;">Na co uważać przy ofertach z rynku — jakie są sygnały ostrzegawcze?</h3>
+        <p style="font-size: 15px; color: oklch(22% 0.01 260 / 0.78); line-height: 1.65; margin: 0;">Kilka sformułowań, które warto zweryfikować dokładniej: „darmowy projekt” (zwykle gotowiec dopasowany pod ofertę jednej firmy, a nie indywidualny projekt), nierealistycznie długie gwarancje (niewiele materiałów na rynku ma za sobą tak długą historię eksploatacyjną, by to uzasadnić), oraz obietnice „łatwej przebudowy w przyszłości” — w praktyce rzadko wykorzystywane, a podnoszące cenę wyjściową bez realnej korzyści.</p>
+      </div>
+
+      <h2 style="font-size: 24px; font-weight: 600; margin: 56px 0 24px; letter-spacing: -0.01em; padding-top: 8px; border-top: 1px solid oklch(22% 0.01 260 / 0.12);">Finansowanie</h2>
+
+      <div style="margin-bottom: 32px;">
+        <h3 style="font-size: 18px; font-weight: 600; margin: 0 0 10px; letter-spacing: -0.005em;">Jakie programy dofinansowania są dziś dostępne dla gmin?</h3>
+        <p style="font-size: 15px; color: oklch(22% 0.01 260 / 0.78); line-height: 1.65; margin: 0;">Skateparki najczęściej finansowane są z programów Ministerstwa Sportu i Turystyki oraz środków wojewódzkich — warto regularnie sprawdzać ich aktualny status, bo nabory otwierają się cyklicznie, a terminy i budżety zmieniają się z roku na rok. Najczęściej pojawiające się ścieżki to ogólnopolski program rozwoju infrastruktury sportowej w województwach (wnioski składane centralnie do MSiT, wybór projektów na poziomie samorządów wojewódzkich), Program Modernizacji Kompleksów Sportowych ORLIK (możliwość dobudowy skateparku lub pumptracku do istniejącego lub nowego kompleksu Orlik) oraz odrębna ścieżka dla większych, prestiżowych inwestycji sportowych. Harmonogramy naborów zmieniają się co roku, a każdy z tych programów bywa okresowo zamykany między rundami — przed rozpoczęciem przygotowań warto sprawdzić na stronie gov.pl/sport, czy dany program jest aktualnie otwarty, czy oczekuje na kolejną edycję.</p>
+      </div>
+
+      <div style="margin-bottom: 32px;">
+        <h3 style="font-size: 18px; font-weight: 600; margin: 0 0 10px; letter-spacing: -0.005em;">Czy warto przygotować dokumentację przed ogłoszeniem naboru?</h3>
+        <p style="font-size: 15px; color: oklch(22% 0.01 260 / 0.78); line-height: 1.65; margin: 0;">Zdecydowanie tak — kompletna dokumentacja techniczna przygotowana z wyprzedzeniem realnie zwiększa szansę na szybkie złożenie pełnego wniosku, gdy tylko nabór zostanie ogłoszony. Okna aplikacyjne bywają krótkie, a przygotowanie dokumentacji od zera po ogłoszeniu potrafi zająć więcej czasu niż samo okno naboru.</p>
+      </div>
+
+      <h2 style="font-size: 24px; font-weight: 600; margin: 56px 0 24px; letter-spacing: -0.01em; padding-top: 8px; border-top: 1px solid oklch(22% 0.01 260 / 0.12);">Polityka, bezpieczeństwo i utrzymanie</h2>
+
+      <div style="margin-bottom: 32px;">
+        <h3 style="font-size: 18px; font-weight: 600; margin: 0 0 10px; letter-spacing: -0.005em;">Czy skatepark wymaga obowiązkowych kasków?</h3>
+        <p style="font-size: 15px; color: oklch(22% 0.01 260 / 0.78); line-height: 1.65; margin: 0;">Przepisy i praktyki w tym zakresie różnią się i mogą się zmieniać, dlatego warto zweryfikować aktualny stan prawny oraz sprawdzić, jak tę kwestię reguluje regulamin własnego obiektu, zanim zostanie on ostatecznie zatwierdzony.</p>
+      </div>
+
+      <div style="margin-bottom: 32px;">
+        <h3 style="font-size: 18px; font-weight: 600; margin: 0 0 10px; letter-spacing: -0.005em;">Jak pogodzić użytkowanie przez deskorolki, BMX i hulajnogi na jednym obiekcie bez konfliktów?</h3>
+        <p style="font-size: 15px; color: oklch(22% 0.01 260 / 0.78); line-height: 1.65; margin: 0;">Dobrze zaprojektowany park rozdziela strefy według prędkości i stylu jazdy, a nie według dyscypliny — BMX i deskorolka mogą współistnieć, jeśli geometria uwzględnia różnice w prędkości i długości „linii” jazdy między nimi. To temat, który trzeba adresować już na etapie projektu, a nie próbować rozwiązywać później samym regulaminem.</p>
+      </div>
+
+    <div style="margin-top: 48px;">
+      <a href="index.html#kontakt" style="text-decoration: none; color: oklch(98% 0.005 80); padding: 15px 26px; font-size: 14.5px; background: oklch(22% 0.01 260); border: 1px solid oklch(22% 0.01 260); display: inline-block;">Skontaktuj się w sprawie realizacji →</a>
+    </div>
+  </section>
+
+  <footer style="padding: 48px 56px; border-top: 1px solid oklch(22% 0.01 260 / 0.15); display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 24px;">
+    <div>
+      <img src="assets/gramps-logo.webp" alt="G.RAMPS Polska" style="height: 26px; width: auto; display: block; margin-bottom: 12px;" />
+      <div style="font-size: 13px; color: oklch(22% 0.01 260 / 0.6); margin-bottom: 2px;">Projektowanie i realizacja infrastruktury sportów miejskich</div>
+      <div style="font-size: 13px; color: oklch(22% 0.01 260 / 0.6);">Oficjalny przedstawiciel i dystrybutor G.RAMPS w Polsce</div>
+    </div>
+    <div style="display: flex; gap: 28px; font-size: 13px; color: oklch(22% 0.01 260 / 0.6);">
+      <a href="polityka-prywatnosci.html" style="color: inherit; text-decoration: none;">Polityka prywatności</a>
+      <a href="nota-prawna.html" style="color: inherit; text-decoration: none;">Nota prawna</a>
+      <span style="font-family: 'IBM Plex Mono', monospace;">© 2026</span>
+    </div>
+  </footer>
+
+</div>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-0WJ75KE0BW"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('consent', 'default', { 'analytics_storage': 'denied' });
+  gtag('js', new Date());
+  gtag('config', 'G-0WJ75KE0BW');
+</script>
+<script src="app.js"></script>
+<script src="cookie-consent.js"></script>
+</body>
+</html>
